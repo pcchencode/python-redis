@@ -82,5 +82,12 @@ def run_mysql(users=100, query=10000):
             conn.commit()
     return
 
+
+print("100位使用者、隨機查詢10000次")
 run_redis(users=100, query=10000)
 run_mysql(users=100, query=10000)
+print("==========================")
+print("100位使用者、隨機查詢100000次")
+run_redis(users=100, query=100000)
+run_mysql(users=100, query=100000)
+
