@@ -19,7 +19,7 @@ def timer(func):
     return wrap
 
 @timer
-def run_redis(users=100, query=10000, r=r, conn=conn):
+def run_redis(users=100, query=10000):
     r.flushdb() # 實驗一開始先清除 redis cache
     trun_cmd = f"""TRUNCATE TABLE test.tb_user"""
     cursor.execute(trun_cmd) # 實驗一開始先清除 mysql database
@@ -55,7 +55,7 @@ def run_redis(users=100, query=10000, r=r, conn=conn):
     return
 
 @timer
-def run_mysql(users=100, query=10000, r=r, conn=conn):
+def run_mysql(users=100, query=10000):
     r.flushdb() # 實驗一開始先清除 redis cache
     trun_cmd = f"""TRUNCATE TABLE test.tb_user"""
     cursor.execute(trun_cmd) # 實驗一開始先清除 mysql database
@@ -82,5 +82,5 @@ def run_mysql(users=100, query=10000, r=r, conn=conn):
             conn.commit()
     return
 
-run_redis(users=100, query=100000)
-run_mysql(users=100, query=100000)
+run_redis(users=100, query=10000)
+run_mysql(users=100, query=10000)
