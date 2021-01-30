@@ -82,5 +82,5 @@ def run_mysql(users=100, query=10000, r=r, conn=conn):
             conn.commit()
     return
 
-run_redis()
-run_mysql()
+run_redis(users=100, query=100000)
+run_mysql(users=100, query=100000)
